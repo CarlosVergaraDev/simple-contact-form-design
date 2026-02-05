@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario de contacto moderno y minimalista">
+    <title>Contact Us | Open Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="background-glow"></div>
+
+    <main class="container">
+        <section class="contact-wrapper">
+            <header class="contact-header">
+                <span class="badge">Get in touch</span>
+                <h1>Hablemos de tu proyecto</h1>
+                <p>Completa el formulario y nos pondremos en contacto contigo en breve.</p>
+            </header>
+
+            <form id="contactForm" class="contact-form" novalidate>
+                <div class="input-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" placeholder="Ej. Alex Rivera" autocomplete="name" required>
+                    <span class="error-msg" id="error-name"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="alex@ejemplo.com" autocomplete="email" required>
+                    <span class="error-msg" id="error-email"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Cuéntanos los detalles..." required></textarea>
+                    <span class="error-msg" id="error-message"></span>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <span class="btn-text">Enviar Mensaje</span>
+                    <div class="btn-glow"></div>
+                </button>
+                
+                <p class="form-status" id="formStatus" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
