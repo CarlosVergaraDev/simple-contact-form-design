@@ -1,0 +1,214 @@
+:root {
+    /* Paleta inspirada en OpenClaw */
+    --bg-color: #030305;
+    --card-bg: rgba(255, 255, 255, 0.02);
+    --text-main: #ededed;
+    --text-muted: #888888;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-focus: rgba(255, 255, 255, 0.2);
+    --accent-glow: radial-gradient(circle at center, #3b82f6 0%, transparent 70%);
+    --btn-gradient: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+    --error-color: #ff4b4b;
+    --success-color: #4ade80;
+    
+    /* Spacing & Typography */
+    --font-family: 'Inter', sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fondo ambiental (Glow Effect) */
+.background-glow {
+    position: fixed;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: var(--accent-glow);
+    opacity: 0.15;
+    filter: blur(100px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.contact-wrapper {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+.contact-header {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 8px;
+    background: linear-gradient(to bottom, #fff, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-header p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* Form Groups */
+.input-group {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input, textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 14px;
+    transition: var(--transition);
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--border-focus);
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.02);
+}
+
+input::placeholder, textarea::placeholder {
+    color: #444;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Validation Styles */
+.input-group.error input, 
+.input-group.error textarea {
+    border-color: var(--error-color);
+}
+
+.error-msg {
+    display: block;
+    font-size: 12px;
+    color: var(--error-color);
+    margin-top: 6px;
+    min-height: 18px; /* Previene saltos de layout */
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: var(--transition);
+}
+
+.input-group.error .error-msg {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(255, 255, 255, 0.15);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* Status Messages */
+.form-status {
+    margin-top: 16px;
+    font-size: 14px;
+    text-align: center;
+    min-height: 20px;
+}
+
+.form-status.success { color: var(--success-color); }
+.form-status.error { color: var(--error-color); }
+
+/* Responsive */
+@media (max-width: 480px) {
+    .contact-wrapper {
+        padding: 24px;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+    }
+    .background-glow {
+        width: 100%;
+    }
+}
